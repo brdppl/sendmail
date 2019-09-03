@@ -4,7 +4,11 @@ const nodemailer = require('nodemailer')
 
 module.exports = router.post('/send-mail', (req, res, next) => {
     let transporter = nodemailer.createTransport({
-        service: 'Gmail', // Recomendo usar o gmail
+        // service: 'Gmail', // Recomendo usar o gmail
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        requireTLS: true,
         auth: {
             user: 'seu_email', // Seu email
             pass: 'senha_do_seu_email' // Senha do seu email
@@ -13,8 +17,8 @@ module.exports = router.post('/send-mail', (req, res, next) => {
     
     let mailOptions = {
         from: `Site ${req.body.email}`,
-        to: 'bernardosfmachado@hotmail.com',
-        subject: 'Contato via site',
+        to: 'seu@email.com',
+        subject: 'Nodemailer rocks!',
         html: `
             <h3>Nome: ${req.body.nome}</h3>
             <h3>Email: ${req.body.email}</h3>
