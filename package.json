@@ -16,6 +16,6 @@
     "express-query-int": "^3.0.0",
     "node-restful": "^0.2.6",
     "nodemailer": "^6.2.1",
-    "pm2": "^3.5.1"
+    "pm2": "^5.2.0"
   }
 }
